@@ -61,7 +61,7 @@ func printPath(parent []int, target int) {
 }
 
 func printSolution(src int, dist []int, parent []int, V int) {
-	fmt.Printf("Source vertex: %d\n\n", src)
+	fmt.Printf("\nSource vertex: %d\n\n", src)
 	fmt.Printf("%-10s%-12s%s\n", "Vertex", "Distance", "Path")
 	for v := 0; v < V; v++ {
 		if dist[v] == INF {
@@ -75,6 +75,7 @@ func printSolution(src int, dist []int, parent []int, V int) {
 }
 
 func main() {
+	fmt.Print("Enter number of vertices: ")
 	var V int
 	if _, err := fmt.Scan(&V); err != nil || V <= 0 {
 		fmt.Println("Error: Invalid number of vertices")
@@ -82,6 +83,7 @@ func main() {
 	}
 
 	graph := make([][]int, V)
+	fmt.Println("Enter adjacency matrix (use INF for no edge):")
 	for i := 0; i < V; i++ {
 		graph[i] = make([]int, V)
 		for j := 0; j < V; j++ {
@@ -107,6 +109,7 @@ func main() {
 		}
 	}
 
+	fmt.Print("Enter source vertex: ")
 	var src int
 	if _, err := fmt.Scan(&src); err != nil || src < 0 || src >= V {
 		fmt.Println("Error: Invalid source vertex")
